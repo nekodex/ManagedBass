@@ -9,7 +9,7 @@ namespace ManagedBass
         /// Creates/initializes a playback channel for a sample.
         /// </summary>
         /// <param name="Sample">Handle of the sample to play.</param>
-        /// <param name="OnlyNew">Do not recycle/override one of the sample's existing channels?</param>
+        /// <param name="Flags">A combination of <see cref="BassFlags"/>.</param>
         /// <returns>If successful, the handle of the new channel is returned, else 0 is returned. Use <see cref="LastError" /> to get the error code.</returns>
         /// <remarks>
         /// <para>
@@ -37,7 +37,7 @@ namespace ManagedBass
         /// <exception cref="Errors.NoChannel">The sample has no free channels... the maximum number of simultaneous playbacks has been reached, and no override flag was specified for the sample or onlynew = <see langword="true" />.</exception>
         /// <exception cref="Errors.Timeout">The sample's minimum time gap (<see cref="SampleInfo" />) has not yet passed since the last channel was created.</exception>
         [DllImport(DllName, EntryPoint = "BASS_SampleGetChannel")]
-        public static extern int SampleGetChannel(int Sample, bool OnlyNew = false);
+        public static extern int SampleGetChannel(int Sample, BassFlags Flags);
 
         /// <summary>
         /// Frees a sample's resources.

@@ -326,6 +326,12 @@ namespace ManagedBass
         /// Sample: override furthest from listener (3D only)
         /// </summary>
         SampleOverrideDistance = 0x30000,
+
+        /// <summary>
+        /// BASS_SampleGetChannel flags (beta)
+        /// </summary>
+        SampleChannelNew = 0x1,
+        SampleChannelStream = 0x2,
         #endregion
 
         #region BassCd
